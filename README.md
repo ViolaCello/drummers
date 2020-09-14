@@ -11,4 +11,6 @@ You, the Drummer (ie., User) will be able to:
     8) Edit your own Profile Page
     9) Look at the Leaders Board Page, which shows which Drummer in our community is practice each of the lessons at the highest tempo.
 
-    
+Code where I got the secure random session, from Sinatra Documentation
+   # ruby -e "require 'securerandom'; puts SecureRandom.hex(64) - this did not display anything
+   Got a 64 bit random hexidecimal code and dropped it into the session secret
