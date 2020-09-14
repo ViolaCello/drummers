@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_14_171506) do
+ActiveRecord::Schema.define(version: 2020_09_14_184658) do
 
   create_table "drummers", force: :cascade do |t|
     t.string "username"
@@ -20,6 +20,18 @@ ActiveRecord::Schema.define(version: 2020_09_14_171506) do
     t.string "favorite_drummer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "goals", force: :cascade do |t|
+    t.integer "current"
+    t.integer "aim"
+    t.integer "drummer_id"
+    t.integer "lesson_id"
+  end
+
+  create_table "lessons", force: :cascade do |t|
+    t.string "exercise"
+    t.string "description"
   end
 
 end
