@@ -1,2 +1,11 @@
 <center><h2>The Latest from Our Drummers Practice Community!</h3></center>
 
+<% @community.each do |i| %>
+<% @diff = i.aim - i.current %>
+<% @percent = (@diff.to_f / i.aim ) * 100 %>
+
+<p><a href = "/lessons/#{i.lesson_id}"><%= i.lesson.exercise %> </a> has just been completed by <a href = "/profile/#{i.drummer_id}"><%= i.drummer.username %></a> at <%= i.current %> BPM.
+<br>   <%= i.drummer.username %> is within <%= @diff %> or, <%= @percent.round(2) %>% BPM of their goal of <%= i.aim %>
+</p>
+
+<% end %>

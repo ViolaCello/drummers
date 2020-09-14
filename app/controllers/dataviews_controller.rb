@@ -7,6 +7,7 @@ get '/community' do
     last_first.map do |i|
         if i.drummer_id 
             @community.push(i)
+            
         end
       #  binding.pry
     end
