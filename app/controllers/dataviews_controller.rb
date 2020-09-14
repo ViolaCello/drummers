@@ -20,7 +20,7 @@ get '/leaders' do
         leader = (i.goals.maximum(:current))
         @leaders.push(i.goals.where(:current => leader))
     end
-binding.pry 
+# binding.pry 
     erb :leaders
 end
 

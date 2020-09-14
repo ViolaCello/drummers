@@ -1,2 +1,9 @@
 <h1>Leader Board!</h1>
 
+<% @leaders.each do |i| %>
+
+<p> <%= i[0].lesson.exercise %><br>
+<%= i[0].drummer.username%><br>
+<%= i[0].current%>
+</p>
+<% end %>
