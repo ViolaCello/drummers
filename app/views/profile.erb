@@ -1,0 +1,19 @@
+<h1> Profile Page for <%= @profile.username %> </h1>
+<br><br>
+<p><b>Hometown: </b> <%= @profile.hometown %></p>
+
+<p><b>Favorite Drummer: </b> <%= @profile.favorite_drummer %></p>
+
+
+<p><b>Member Since: </b> <%= @profile.created_at.strftime("%B %Y") %></p>
+<br>
+<br>
+Practice Log:
+<br>
+<br>
+<% @profile.goals.each do |i| %>
+<p><b><%= i.lesson.exercise %></b> - <%= i.lesson.description %><br>
+Goal: <%=i.aim%>
+Last BPM: <%= i.current %>
+</p>
+<% end %>
