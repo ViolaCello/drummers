@@ -1,1 +1,16 @@
 <p>Testing Index Page</p>
+How about this?
+<% @users.each do |u| %>
+
+<p>Drummer #<%= u.id  %> is Username: <%= u.username %></p>
+<% end %>
+<br><br>
+<% @less.each do |i| %>
+<p>Lesson #<%= i.id  %> is Exercise: <%= i.exercise %> </p>
+<% end %>
+<br><br>
+<% @g.each do |j| %>
+<p>Goal #<%= j.id  %> Belongs to Drummer id: <%= j.drummer_id %> </p>
+<% end %>
+
+Do you see this?

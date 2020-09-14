@@ -12,6 +12,11 @@ class ApplicationController < Sinatra::Base
   get "/" do
   # binding.pry
   #  erb :welcome
+    @users = Drummer.all 
+    @less = Lesson.all 
+    @g = Goal.all 
+
+
   erb :index
   end
 
