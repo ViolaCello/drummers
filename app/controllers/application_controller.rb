@@ -28,6 +28,12 @@ helpers do
     @user = Drummer.find_by_id(session[:user_id]) if logged_in?
   end
 
+  def account_active?(id)
+     !!Drummer.find_by_id(id)
+  end
+    
+  
+
 end
 
 
