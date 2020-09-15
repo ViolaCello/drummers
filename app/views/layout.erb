@@ -16,6 +16,7 @@
   <body>
     <div class="wrapper">
 <center><h1><i>Drummers of the World Unite!</i></h1></center>
+<center><h2><%= current_user.username if current_user %></h2></center>
 <% if logged_in? %>
 <p><a href = "/profile/<%=current_user.id%>">My Profile</a></p>
 <% end %>
