@@ -2,8 +2,8 @@
 
 <% @leaders.each do |i| %>
 
-<p> <%= i[0].lesson.exercise %><br>
-<%= i[0].drummer.username%><br>
-<%= i[0].current%>
+<p> <a href = "/lessons/<%=i[0].lesson.id %>"><%= i[0].lesson.exercise %></a><br>
+<a href = "/profile/<%= i[0].drummer.id %>"><%= i[0].drummer.username%></a><br>
+Fastest BPM: <%= i[0].current%>
 </p>
 <% end %>
