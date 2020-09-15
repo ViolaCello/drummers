@@ -21,7 +21,7 @@ class DrummerController < ApplicationController
     end
 
     get '/login' do
-        
+        erb :"/account/login"
     end
 
     post '/login' do
