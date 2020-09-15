@@ -15,9 +15,21 @@ class ApplicationController < Sinatra::Base
     @users = Drummer.all 
     @less = Lesson.all 
     @g = Goal.all 
-
-
   erb :index
   end
+
+helpers do
+  
+  def logged_in?
+    !!session[:user_id]
+  end
+
+  def current_user
+    @user = Drummer.find_by_id(session[:user_id]) if logged_in?
+  end
+
+end
+
+
 
 end
