@@ -17,3 +17,8 @@ Goal: <%=i.aim%>
 Last BPM: <%= i.current %>
 </p>
 <% end %>
+<% if logged_in? && @profile.id == current_user.id %>
+<a href = "/profile/<%= @profile.id%>/edit"><button type="button">Edit Profile</button></a>
+<br><br>
+<a href = "/profile/<%= @profile.id%>/delete"><button type="button">Delete Profile</button></a>
+<% end %>

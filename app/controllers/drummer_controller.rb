@@ -1,15 +1,20 @@
 class DrummerController < ApplicationController
 
     get '/profile/:id' do
+       
+       @profile = Drummer.find_by(id: params[:id])
        # binding.pry
-        @profile = Drummer.find_by(id: params[:id])
+       if @profile = Drummer.find_by(id: params[:id])
         erb :profile
+       else
+        redirect '/'
+       end
     end
 
     get '/profile/:id/edit' do
         if logged_in?
             @profile = Drummer.find_by(id: params[:id])
-            if @profile && @profile == current_user
+            if @profile && @profile.id == current_user.id
                 erb :"/account/edit_profile"
              else
                 redirect '/'
@@ -22,7 +27,7 @@ class DrummerController < ApplicationController
     patch '/profile/:id/edit' do 
         if logged_in?
             @profile = Drummer.find_by_id(params[:id])
-              if @profile && @profile == current_user
+              if @profile && @profile.id == current_user.id
                 if @profile.update(hometown: params[:hometown], favorite_drummer: params[:favorite_drummer])
                   redirect "/profile/#{@profile.id}"
                 else
