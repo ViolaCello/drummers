@@ -26,6 +26,19 @@ goal5 = Goal.create(current: 221, aim: 350)
 # goal4.drummer = marlo
 # goal5.drummer = tooth
 
+goal11 = Goal.create(current: 44, aim: 120)
+goal22 = Goal.create(current: 45, aim: 120)
+goal33 = Goal.create(current: 46, aim: 120)
+
+stick.goals << goal11
+stick.goals << goal22
+stick.goals << goal33
+snare.goals << goal11
+snare.goals << goal22
+snare.goals << goal33
+
+
+
 mel.goals << goal1
 stick.goals << goal2
 steve.goals << goal3
