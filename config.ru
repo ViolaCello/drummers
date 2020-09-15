@@ -7,4 +7,5 @@ require './config/environment'
 use Rack::MethodOverride 
 use DataviewsController
 use DrummerController 
+use DrummerController
 run ApplicationController
