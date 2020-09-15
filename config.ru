@@ -6,6 +6,6 @@ require './config/environment'
 
 use Rack::MethodOverride 
 use DataviewsController
-use DrummerController 
+use SessionController 
 use DrummerController
 run ApplicationController

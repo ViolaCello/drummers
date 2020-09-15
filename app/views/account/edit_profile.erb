@@ -1,0 +1,16 @@
+<h3>Edit Profile for <%= @profile.username %> </h3>
+<br><br>
+<p><b>Hometown: </b> <%= @profile.hometown %></p>
+<p><b>Favorite Drummer: </b> <%= @profile.favorite_drummer %></p>
+<br><br>
+<h4>Edit:</h4>
+<br><br>
+<ul style="list-style-type:none">
+<form action = "/profile/<%=@profile.id%>/edit" method = "post">
+<input type = "hidden" name ="_method" value = "patch">
+<li>Updaye your hometown?<input type = "text" name = "hometown" placeholder = "<%= @profile.hometown %>" value = "<%= @profile.hometown %>"> </li>
+<li>Who is your favorite drummer?<input type = "text" name = "favorite_drummer" placeholder = "<%= @profile.favorite_drummer %>" value = "<%= @profile.favorite_drummer %>" >  </li>
+<br><br>
+<input type = "submit" value = "Update Account">
+</form>
+</ul>

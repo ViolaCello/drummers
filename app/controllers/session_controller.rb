@@ -1,12 +1,12 @@
-class DrummerController < ApplicationController
+class SessionController < ApplicationController
 
     get '/join' do
         
-        # if logged_in?
-        #     redirect '/'
-        # else
+        if logged_in?
+            redirect '/'
+        else
          erb :"/account/join"
-     #   end
+       end
     end
 
     post '/join' do
@@ -24,7 +24,6 @@ class DrummerController < ApplicationController
         if logged_in?
            redirect "/profile/#{@user.id}"
         end
-
         erb :"/account/login"
     end
 
