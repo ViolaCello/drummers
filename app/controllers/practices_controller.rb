@@ -13,11 +13,18 @@ class PracticesController < ApplicationController
                 b = practice.where(:lesson_id => a).last
                 my_practice.push(b)
             end
-            # binding.pry
+            @all_lessons = Lesson.all
+            
             @practice = my_practice.uniq
             erb :"/account/log_bpm"
         end
-        
     end
     
+    post '/practice/:id' do
+        if !logged_in? || current_user.id != params[:id].to_i
+            redirect '/'
+        else 
+            erb :"/account/log_bpm"
+        end
+    end
 end

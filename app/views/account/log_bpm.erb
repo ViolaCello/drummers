@@ -4,18 +4,20 @@
 
 <% @practice.each do |i| %>
 
-<p><%= i.lesson.exercise %> - last BMP <%= i.current %></p>
+<form method="post" action="/practice/<%=current_user.id%>">
+<p><input type = "radio" name = "exercise" value = "<%= i.lesson.exercise %>"><%= i.lesson.exercise %> - Previous BPM = <%= i.current%></p>
 <% end %>
+<p><input type="submit" value="Update"></p>
+</form>
 
+<h4>Or, choose from the full list of practices to log:</h4>
+<br><br>
+<% @all_lessons.each do |i| %>
 
-
-
-
-- radio buttons display Lessons you already have logged
-- option to add from existing exercises
-- option to create a new exercise (takes you to 'add_lesson')
-
-
-- Finished Button, takes you to profile page
+<form method="post" action="/practice/<%=current_user.id%>">
+<p><input type = "radio" name = "exercise" value = "<%= i.exercise %>"><%= i.exercise %><br><%= i.description%></p>
+<% end %>
+<input type="submit" value="Update">
+</form>
 
 </center>
