@@ -54,6 +54,7 @@ class DrummerController < ApplicationController
         if logged_in? && current_user.id == params[:id].to_i
             @profile = Drummer.find_by_id(params[:id])
             if @profile && @profile.id == current_user.id
+                remove = Goal.purge_by_id(profile.id)
                 @profile.delete
             end
             redirect '/logout'
