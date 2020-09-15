@@ -18,8 +18,15 @@
 <center><h1><i>Drummers of the World Unite!</i></h1></center>
 <% if logged_in? %>
 <center><h5>Logged in as: <%= current_user.username  %></h5></center>
-<p><a href = "/profile/<%=current_user.id%>">My Profile</a></p>
-<p><a href = "/practice/<%=current_user.id%>">Log Practice Session</a></p>
+
+
+<form action="/profile/<%=current_user.id%>">
+    <input type="submit" value="My Profile" />
+</form>
+<form action="/practice/<%=current_user.id%>">
+    <input type="submit" value="Log Practice Session" />
+</form>
+
 <% end %>
 <% if !logged_in? %>
 <p><a href = "/join">Create Account</a></p>
@@ -27,6 +34,7 @@
 <% end %>
 <p><a href = "/leaders">Leader Board</a></p>
 <p><a href = "/community">Community Page</a></p>
+
 <% if logged_in? %>
 <p><a href = "/logout">Log Out</a></p>
 <% end %>

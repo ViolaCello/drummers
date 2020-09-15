@@ -14,7 +14,6 @@ class PracticesController < ApplicationController
                 my_practice.push(b)
             end
             @all_lessons = Lesson.all
-            
             @practice = my_practice.uniq
             erb :"/account/log_bpm"
         end
@@ -24,7 +23,8 @@ class PracticesController < ApplicationController
         if !logged_in? || current_user.id != params[:id].to_i
             redirect '/'
         else 
-            erb :"/account/log_bpm"
+            @update = Lesson.find_by(:exercise => params[:exercise])
+            erb :"/account/edit_bpm"
         end
     end
 end
