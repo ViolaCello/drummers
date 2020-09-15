@@ -21,12 +21,21 @@ class DrummerController < ApplicationController
     end
 
     get '/login' do
+        if logged_in?
+           redirect "/profile/#{@user.id}"
+        end
+
         erb :"/account/login"
     end
 
     post '/login' do
-        
+        user = Drummer.find_by(username: params["username"])
+        if !!user && !!user.authenticate(params["password"])
+        session[:user_id] = user.id
+        redirect "/profile/#{user.id}"
     end
+        redirect '/login'
+end
 
     get '/logout' do
         session.clear
