@@ -5,6 +5,7 @@ require './config/environment'
 #end
 
 use Rack::MethodOverride 
+use LessonController
 use PracticesController
 use DataviewsController
 use SessionController 

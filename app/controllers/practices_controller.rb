@@ -30,7 +30,7 @@ class PracticesController < ApplicationController
         end
     end
 
-    patch '/practice/:id/:exercise' do
+    post '/practice/:id/:exercise' do
         if !logged_in? || current_user.id != params[:id].to_i
             redirect '/'
         else

@@ -6,7 +6,13 @@
 <% @percent = (@diff.to_f / i.aim ) * 100 %>
 
 <p><a href = "/lessons/<%=i.lesson.id %>"><%= i.lesson.exercise %> </a> has just been completed by <a href = "/profile/<%= i.drummer.id %>"><%= i.drummer.username %></a> at <%= i.current %> BPM.
-<br>   <%= i.drummer.username %> is within <%= @diff %> or, <%= @percent.round(2) %>% BPM of their goal of <%= i.aim %>
+<br> 
+
+<% if i.aim > 1 && @diff > 0 %>
+  <%= i.drummer.username %> is within <%= @diff %> or, <%= @percent.round(2) %>% BPM of their goal of <%= i.aim %>
+<% end %>
+
+
 </p>
 <% end %>
 <% end %>  

@@ -1,0 +1,13 @@
+<h3><%= @lesson.exercise %> Page</h3>
+
+<h1><%= @lesson.description %> </h1>
+
+<p>Drummers that logged practicing this lesson:</p>
+
+
+<ul>
+<% @goal.each do |i| %>
+
+<li><a href = "/profile/<%= i.drummer.id %>"> <%= i.drummer.username%></a></li>
+<% end %>
+</ul>

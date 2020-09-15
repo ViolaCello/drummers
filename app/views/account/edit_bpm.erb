@@ -2,12 +2,18 @@
 <center><h3>Enter your latest <%= @update.exercise %> practice session</h3>
 
 <form method = "post" action = "/practice/<%=current_user.id%>/<%=@update.exercise%>">
-<input type = "hidden" name = "_method" value = "patch">
+
 Enter latest BPM: <input type = "text" name = "current" placeholder = "latest bpm">
 
 <% if !!@goals %>
 <br><br>
 Pevious goal = <%=@goals.aim%>.  Enter a new goal if you'd like to update: <input type = "text" name = "aim" placeholder = "<%=@goals.aim%>" value = "<%=@goals.aim%>">
+<% else %>
+<br><br>
+<i>It looks like this is a new practice for you.</i><br>
+Please add a tempo goal for yourself: <input type = "text" name = "aim">
+
+
 <% end %>
 <br><br>
 <input type = "submit" value = "Enter">
