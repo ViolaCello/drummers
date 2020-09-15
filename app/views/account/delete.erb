@@ -1,0 +1,16 @@
+<center><h1><%= @profile.username %>!!! Delete Account ???</h1>
+<br><br>
+<p>Are you <i>sure</i> that you really want to delete your account from our community?</p>
+
+<% if logged_in? && @profile.id == current_user.id %>
+
+<br><br>
+<form action = "/profile/<%=@profile.id%>/delete" method = "post">
+<input type = "hidden" name = "_method" value = "delete">
+<input type="submit" value = "Sorry, please Delete Account">
+</form>
+
+<% end %>
+<br><br>
+<a href = "/profile/<%= @profile.id%>"><button type="button">No! My Mistake! Take me Back!</button></a>
+</center>

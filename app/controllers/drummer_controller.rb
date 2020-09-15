@@ -40,5 +40,25 @@ class DrummerController < ApplicationController
             redirect '/login'
           end
     
+    get '/profile/:id/delete' do
+        # binding.pry
+        if logged_in? && current_user.id == params[:id].to_i
+            @profile = Drummer.find_by_id(params[:id])
+            erb :"/account/delete"
+        else
+            redirect '/'
+        end
+    end
+
+    delete '/profile/:id/delete' do
+        if logged_in? && current_user.id == params[:id].to_i
+            @profile = Drummer.find_by_id(params[:id])
+            if @profile && @profile.id == current_user.id
+                @profile.delete
+            end
+            redirect '/logout'
+        end
+        redirect '/logout'
+    end
 
 end
