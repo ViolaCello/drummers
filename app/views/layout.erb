@@ -15,6 +15,20 @@
   </head>
   <body>
     <div class="wrapper">
+<center><h1><i>Drummers of the World Unite!</i></h1></center>
+<% if logged_in? %>
+<p><a href = "/profile/:id">My Profile</a></p>
+<% end %>
+<% if !logged_in? %>
+<p><a href = "/join">Create Account</a></p>
+<p><a href = "/login">Log In</a></p>
+<% end %>
+<p><a href = "/leaders">Leader Board</a></p>
+<p><a href = "/community">Community Page</a></p>
+<% if logged_in? %>
+<p><a href = "/logout">Log Out</a></p>
+<% end %>
+
 
         <%= yield %>
 
