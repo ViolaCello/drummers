@@ -44,8 +44,13 @@ class LessonController < ApplicationController
             goal = Goal.find_by_id(params[:goal].to_i)
             if user.id == goal.drummer_id
                 # binding.pry
-                goal.update(:current => params[:current].to_i, :aim => params[:aim].to_i)
+                if !check_string(params[:current]) || !check_string(params[:aim])
+                    @error = "Data must be whole numbers only"
+                    erb :error
+                else
+                 goal.update(:current => params[:current].to_i, :aim => params[:aim].to_i)
                 redirect "/profile/#{user.id}"
+                end
             else 
                 redirect '/'
             end

@@ -2,6 +2,8 @@
 
 <h5>Update: <%= @practice.lesson.exercise %></h5>
 
+
+
 <ul style="list-style-type:none">
 <form action = "/lessons/<%=current_user.id%>/edit/<%=@practice.id%>" method = "post">
 <input type = "hidden" name ="_method" value = "patch">
@@ -16,4 +18,8 @@
 <form action = "/lessons/<%=current_user.id%>/delete/<%= @practice.id %>" method = "post">
 <input type = "hidden" name ="_method" value = "delete">
 <input type = "submit" value = "Delete Entry">
+
+
+
+
 </center>

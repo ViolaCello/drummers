@@ -33,7 +33,13 @@ helpers do
      !!Drummer.find_by_id(id)
   end
     
-  
+  def check_string(string)
+    result = false
+    if string.to_i.to_s.eql? string
+      result =  true
+    end
+    result
+  end
 
 end
 

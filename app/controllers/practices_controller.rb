@@ -37,14 +37,16 @@ class PracticesController < ApplicationController
             drummer = Drummer.find_by_id(params[:id])
             lesson = Lesson.find_by(:exercise => params[:exercise])
            # binding.pry
-            if practice = Goal.create(current: params[:current].to_i, aim: params[:aim].to_i)
+           if !check_string(params[:current]) || !check_string(params[:aim])
+            @error = "Data must be whole numbers only"
+            erb :error
+        else
+            practice = Goal.create(current: params[:current].to_i, aim: params[:aim].to_i)
                 drummer.goals << practice
                 lesson.goals << practice
-            else  
-                 redirect "/practice/#{current_user.id}"
+              
             end
-
-       redirect "/profile/#{current_user.id}"
+            redirect "/profile/#{current_user.id}"
         end
     end
 
