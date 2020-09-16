@@ -5,10 +5,11 @@ Here is your currently logged practice events.<br>Please choose which you would 
 
 
 <br><br>
+
 <% @practice.each do |i| %>
 
 <form method="post" action="/lessons/<%=current_user.id%>/edit">
-<p><input type = "radio" name = "lesson_id" value = "<%= i.lesson_id %>"><%= i.lesson.exercise %><br>Goal: <%= i.aim%>, Recorded BPM: <%= i.current %></p>
+<p><input type = "radio" name = "goal_id" value = "<%= i.id %>"><%= i.lesson.exercise %><br>Goal: <%= i.aim%>, Recorded BPM: <%= i.current %></p>
 <% end %>
 <input type="submit" value="Update">
 </form>

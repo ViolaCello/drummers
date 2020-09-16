@@ -3,7 +3,7 @@
 <h5>Update: <%= @practice.lesson.exercise %></h5>
 
 <ul style="list-style-type:none">
-<form action = "/lessons/<%=current_user.id%>/edit" method = "post">
+<form action = "/lessons/<%=current_user.id%>/edit/<%=@practice.id%>" method = "post">
 <input type = "hidden" name ="_method" value = "patch">
 <li>Change Actual Tempo: <input type = "text" name = "current" placeholder = "<%= @practice.current %>" value = "<%= @practice.current %>" placeholder = "<%= @practice.current %>"> </li>
 <li>Change Tempo Goal:<input type = "text" name = "aim" placeholder = "<%= @practice.aim %>" value = "<%= @practice.aim %>" placeholder = "<%= @practice.aim %>"> </li>

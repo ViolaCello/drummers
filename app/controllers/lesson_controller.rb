@@ -29,7 +29,8 @@ class LessonController < ApplicationController
     post '/lessons/:id/edit' do 
         if logged_in? && current_user.id == params[:id].to_i
             user = Drummer.find_by_id(current_user.id)
-            @practice = Goal.find_by(:lesson_id => params[:lesson_id].to_i)
+            @practice = Goal.find_by_id(params[:goal_id].to_i)
+           # binding.pry 
             erb :"/account/edit_user_lesson"
         else 
             redirect '/'
@@ -37,19 +38,29 @@ class LessonController < ApplicationController
     end
 
 
-    patch '/lessons/:id/edit' do 
+    patch '/lessons/:id/edit/:goal' do 
         if logged_in? && current_user.id == params[:id].to_i
             user = Drummer.find_by_id(current_user.id)
+            goal = Goal.find_by_id(params[:goal].to_i)
+            if user.id == goal.drummer_id
+                # binding.pry
+                goal.update(:current => params[:current].to_i, :aim => params[:aim].to_i)
+                redirect "/profile/#{user.id}"
+            else 
+                redirect '/'
+            end
+        else
+            redirect '/'
         end
     end
 
-    patch '/lessons/:id/delete/:goal' do 
+    delete '/lessons/:id/delete/:goal' do 
         if logged_in? && current_user.id == params[:id].to_i
             user = Drummer.find_by_id(current_user.id)
             goal = Goal.find_by_id(params[:goal].to_i)
             if user.id == goal.drummer_id
                 goal.delete
-                redirect '/profile/#{user.id}'
+                redirect "/profile/#{user.id}"
             else
                 redirect '/'
             end
