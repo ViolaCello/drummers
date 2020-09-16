@@ -1,16 +1,9 @@
-<p>Testing Index Page</p>
-How about this?
-<% @users.each do |u| %>
+<center><h2>Welcome to our Drummers Community!</h2>
 
-<p>Drummer #<%= u.id  %> is Username: <%= u.username %></p>
-<% end %>
+<h3>We currently have <%= @users.length %> members!</h3>
 <br><br>
-<% @less.each do |i| %>
-<p>Lesson #<%= i.id  %> is Exercise: <%= i.exercise %> </p>
-<% end %>
+<p>Feel free to checkout our Community Page and Leaderboard page and also to checkout individual profiles and practice descriptions.</p>
 <br><br>
-<% @g.each do |j| %>
-<p>Goal #<%= j.id  %> Belongs to Drummer id: <%= j.drummer_id %> </p>
-<% end %>
+<p>Perhaps then you would like to Log In, or Create a <i>free account</i> and join us!</p>
 
-Do you see this?
+</center>
