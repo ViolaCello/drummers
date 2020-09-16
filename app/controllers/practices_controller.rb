@@ -45,6 +45,12 @@ class PracticesController < ApplicationController
             end
 
        redirect "/profile/#{current_user.id}"
-end
-end
+        end
+    end
+
+
+
+
+    
+    
 end

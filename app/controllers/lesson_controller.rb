@@ -14,4 +14,15 @@ class LessonController < ApplicationController
           erb :lessons
     end
 
+
+    get '/lessons/:id/edit' do 
+        if logged_in? && current_user.id == params[:id].to_i
+            @user = Drummer.find_by_id(current_user.id)
+            @practice = Goal.find(:drummer_id => current_user.id)
+            erb :"/account/edit_lesson"
+        else 
+            redirect '/'
+        end
+    end
+
 end
