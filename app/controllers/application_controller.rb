@@ -10,12 +10,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-  # binding.pry
-  #  erb :welcome
-    Goal.purge_unidentified_data # remove any data in Goals table that is not attached to any drummer and/or exercise
     @users = Drummer.all 
-    @less = Lesson.all 
-    @g = Goal.all 
   erb :index
   end
 

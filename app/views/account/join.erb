@@ -1,5 +1,11 @@
 <h3>Create an Account to Join our Community</h3>
 
+<% if @errors %>
+<% @errors.each do |i| %>
+<h3 style="color:red;"> <%= i %></h3>
+<% end %>
+<% end %>
+
 <ul style="list-style-type:none">
 <form action = "/join" method = "post">
 <li>Create a unique Username: <input type = "text" name = "username" placeholder = "new Username"> </li>

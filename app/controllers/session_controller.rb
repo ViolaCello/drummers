@@ -16,7 +16,8 @@ class SessionController < ApplicationController
            # binding.pry
             redirect "/profile/#{@user.id}"
         else
-           redirect '/join'
+            @errors = @user.errors.full_messages
+           erb :"/account/join"
         end
     end
 

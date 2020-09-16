@@ -5,6 +5,8 @@ class DrummerController < ApplicationController
        @profile = Drummer.find_by(id: params[:id])
        # binding.pry
        if @profile = Drummer.find_by(id: params[:id])
+        goals = Goal.where(:drummer_id => @profile.id)
+        @goals = goals.reverse #so the practice log displays the latest entry closest to the top of the list
         erb :profile
        else
         redirect '/'
@@ -28,7 +30,8 @@ class DrummerController < ApplicationController
         if logged_in?
             @profile = Drummer.find_by_id(params[:id])
               if @profile && @profile.id == current_user.id
-                if @profile.update(hometown: params[:hometown], favorite_drummer: params[:favorite_drummer])
+                binding.pry
+                if @profile.update(:hometown => params[:hometown], :favorite_drummer => params[:favorite_drummer])
                   redirect "/profile/#{@profile.id}"
                 else
                   redirect "/profile/#{@profile.id}/edit"

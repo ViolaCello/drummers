@@ -11,11 +11,13 @@
 <u>Practice Log</u>:
 <br>
 <br>
-<% @profile.goals.each do |i| %>
+<% if @goals %>
+<% @goals.each do |i| %>
 <p><b><%= i.lesson.exercise %></b> - <%= i.lesson.description %><br>
 Goal: <%=i.aim%>
 Last BPM: <%= i.current %>
 </p>
+<% end %>
 <% end %>
 <% if @profile.goals.length == 0 %>
 <p>You have not yet entered any practice sessions</p>
