@@ -1,0 +1,19 @@
+<center><h3>Edit Specific Lesson</h3>
+
+<h5>Update: <%= @practice.lesson.exercise %></h5>
+
+<ul style="list-style-type:none">
+<form action = "/lessons/<%=current_user.id%>/edit" method = "post">
+<input type = "hidden" name ="_method" value = "patch">
+<li>Change Actual Tempo: <input type = "text" name = "current" placeholder = "<%= @practice.current %>" value = "<%= @practice.current %>" placeholder = "<%= @practice.current %>"> </li>
+<li>Change Tempo Goal:<input type = "text" name = "aim" placeholder = "<%= @practice.aim %>" value = "<%= @practice.aim %>" placeholder = "<%= @practice.aim %>"> </li>
+<br><input type = "submit" value = "update">
+</form>
+</ul>
+<br><br>
+<h4>Or, you can delete the entry entirely:</h4>
+<br>
+<form action = "/lessons/<%=current_user.id%>/delete/<%= @practice.id %>" method = "post">
+<input type = "hidden" name ="_method" value = "delete">
+<input type = "submit" value = "Delete Entry">
+</center>

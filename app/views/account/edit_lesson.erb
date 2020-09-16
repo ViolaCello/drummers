@@ -1,0 +1,19 @@
+<center><h3>Edit Practice Log for <%= current_user.username %> </h3>
+<br><br>
+Here is your currently logged practice events.<br>Please choose which you would like to edit. 
+
+
+
+<br><br>
+<% @practice.each do |i| %>
+
+<form method="post" action="/lessons/<%=current_user.id%>/edit">
+<p><input type = "radio" name = "lesson_id" value = "<%= i.lesson_id %>"><%= i.lesson.exercise %><br>Goal: <%= i.aim%>, Recorded BPM: <%= i.current %></p>
+<% end %>
+<input type="submit" value="Update">
+</form>
+
+
+
+
+</center>
