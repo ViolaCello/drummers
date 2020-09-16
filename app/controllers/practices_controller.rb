@@ -20,13 +20,21 @@ class PracticesController < ApplicationController
     end
     
     post '/practice/:id' do
+      #  binding.pry
         if !logged_in? || current_user.id != params[:id].to_i
             redirect '/'
         else 
+            if !params[:exercise]
+                
+                @error = "Dude, you clicked the incorrect Update button."
+               # binding.pry
+                erb :error
+            else
             @update = Lesson.find_by(:exercise => params[:exercise])
             @goals = @update.goals.where(:drummer_id => current_user.id).last
             # binding.pry
             erb :"/account/edit_bpm"
+            end
         end
     end
 
