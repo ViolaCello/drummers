@@ -8,7 +8,7 @@
 <p><b>Member Since: </b> <%= @profile.created_at.strftime("%B %Y") %></p>
 <br>
 <br>
-<u></u>Practice Log</u>:
+<u>Practice Log</u>:
 <br>
 <br>
 <% @profile.goals.each do |i| %>
@@ -17,10 +17,15 @@ Goal: <%=i.aim%>
 Last BPM: <%= i.current %>
 </p>
 <% end %>
+<% if @profile.goals.length == 0 %>
+<p>You have not yet entered any practice sessions</p>
+<% end %>
 <% if logged_in? && @profile.id == current_user.id %>
 <a href = "/profile/<%= @profile.id%>/edit"><button type="button">Edit Profile</button></a>
 <br><br>
+<% if @profile.goals.length > 0 %>
 <a href = "/lessons/<%= @profile.id%>/edit"><button type="button">Edit Practice Log Info</button></a>
 <br><br>
+<% end %>
 <a href = "/profile/<%= @profile.id%>/delete"><button type="button">Delete Account</button></a>
 <% end %>
