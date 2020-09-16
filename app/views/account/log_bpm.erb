@@ -1,7 +1,7 @@
 <center>
 <h2>Log Practice Session Info</h3>
 
-
+<%  if @practice.length > 0 %>
 <% @practice.each do |i| %>
 
 <form method="post" action="/practice/<%=current_user.id%>">
@@ -10,7 +10,14 @@
 <p><input type="submit" value="Update"></p>
 </form>
 
+
+
 <h4>Or, choose from the full list of practices to log:</h4>
+<% else %>
+
+<h4>Choose from the full list of practices to log:</h4>
+
+<% end %>
 <br><br>
 <% @all_lessons.each do |i| %>
 
