@@ -13,5 +13,14 @@ def self.purge_by_id(drummer) # this removes a drummer's data once account is de
     end
 end
 
-    
+def self.purge_unidentified_data
+    g = Goal.all
+        g.map do |i|
+            if !i.drummer_id || !i.lesson_id
+                i.delete
+            end
+        end
+end
+
+
 end
