@@ -30,7 +30,7 @@ class DrummerController < ApplicationController
         if logged_in?
             @profile = Drummer.find_by_id(params[:id])
               if @profile && @profile.id == current_user.id
-                binding.pry
+              #  binding.pry
                 if @profile.update(:hometown => params[:hometown], :favorite_drummer => params[:favorite_drummer])
                   redirect "/profile/#{@profile.id}"
                 else

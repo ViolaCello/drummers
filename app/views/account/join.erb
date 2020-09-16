@@ -2,7 +2,9 @@
 
 <% if @errors %>
 <% @errors.each do |i| %>
+<% if i != "Password digest can't be blank"%>
 <h3 style="color:red;"> <%= i %></h3>
+<% end %>
 <% end %>
 <% end %>
 
