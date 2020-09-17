@@ -4,6 +4,7 @@ class Goal < ActiveRecord::Base
 
 
 
+
 def self.purge_by_id(drummer) # this removes a drummer's data once account is deleted
     g = Goal.all
     g.map do |i|
