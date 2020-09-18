@@ -11,7 +11,7 @@ tooth = Drummer.create(username: "Marus9", hometown: "Philadelphia, PA", passwor
 snare = Lesson.create(exercise: "Jazz: Comping Snare", description: "Swing Ride pattern with comping patterns on the snare drum.")
 full = Lesson.create(exercise: "Jazz: Comping Full", description: "Swing Ride pattern with comping patterns on the snare, bass, and hi-hat.")
 latin = Lesson.create(exercise: "Latin: Bossa Nova", description: "Standard Bossa Nova pattern with alternating clave.")
-four = Lesson.create(exercise: "Four-limb Independence", description: "Non-musical exercise to challange muscle memory for complete independence of the hands and feet.")
+four = Lesson.create(exercise: "Four-limb Independence", description: "Non-musical exercise to challenge muscle memory for complete independence of the hands and feet.")
 rudi = Lesson.create(exercise: "Sticking: Rudiments", description: "The Vic Firth 40 Essential Rudiments")
 
 goal1 = Goal.create(current: 60, aim: 120)
