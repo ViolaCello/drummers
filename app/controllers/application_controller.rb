@@ -10,6 +10,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
+    purge = Goal.purge_unidentified_data
     @users = Drummer.all 
   erb :index
   end
