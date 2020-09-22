@@ -6,11 +6,18 @@ You, the Drummer (ie., User) will be able to:
     3) Log out when finished
     4) Create a public profile page
     5) Choose from an existing list of practice lessons to enter what BPM you were able to get up to today
-    6) Create a new lesson that will be publicly available to other Drummers (Users)
-    7) View other Drummers profile pages
-    8) Edit your own Profile Page
-    9) Look at the Leaders Board Page, which shows which Drummer in our community is practice each of the lessons at the highest tempo.
+    6) View other Drummers profile pages (whether logged in or logged out)
+    7) Edit your own Profile Page
+    8) Look at the Leaders Board Page, which shows which Drummer in our community is practice each of the lessons at the highest tempo. (whether logged in or logged out)
+    9) Add your current practice log and goal for that particular practice
+    10) Edit #9 
+    11) See all the entires/logs of other Drummers, displayed with the most recent first (whether logged in or logged out)
 
-Code where I got the secure random session, from Sinatra Documentation
-   # ruby -e "require 'securerandom'; puts SecureRandom.hex(64) - this did not display anything
+    To operate:
+    1) Clone at github
+    2) run 'bundle install'
+    3) run 'shotgun' to view on your local browser
+
+Code where I got the secure random session, from Sinatra Documentation: 
+    ruby -e "require 'securerandom'; puts SecureRandom.hex(64) - this did not display anything
    Got a 64 bit random hexidecimal code and dropped it into the session secret
