@@ -14,11 +14,12 @@ class DrummerController < ApplicationController
     get '/profile/:id/edit' do
         if logged_in?
             @profile = Drummer.find_by(id: params[:id])
-            if @profile && @profile.id == current_user.id
+           # if @profile && @profile.id == current_user.id
+           user_ok?(@profile) # replaced redundant code with new helper method 
                 erb :"/account/edit_profile"
-             else
-                redirect '/'
-            end
+            #  else
+            #     redirect '/'
+            # end
         else
             redirect '/login'
         end 
@@ -52,10 +53,11 @@ class DrummerController < ApplicationController
     delete '/profile/:id/delete' do
         if logged_in? && current_user.id == params[:id].to_i
             @profile = Drummer.find_by_id(params[:id])
-            if @profile && @profile.id == current_user.id
+           # if @profile && @profile.id == current_user.id
+           user_ok?(@profile) # replaced redundant code with new helper method 
                 remove = Goal.purge_by_id(@profile.id)
                 @profile.delete
-            end
+           # end
             redirect '/logout'
         end
         redirect '/logout'
