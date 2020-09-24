@@ -1,12 +1,10 @@
 class DrummerController < ApplicationController
 
     get '/profile/:id' do
-       
        @profile = Drummer.find_by(id: params[:id])
-       # binding.pry
        if @profile = Drummer.find_by(id: params[:id])
-        goals = Goal.where(:drummer_id => @profile.id)
-        @goals = goals.reverse #so the practice log displays the latest entry closest to the top of the list
+       # goals = Goal.where(:drummer_id => @profile.id) # remove since ActiveRecord association methods are more DRY
+        @goals = @profile.goals.reverse #so the practice log displays the latest entry closest to the top of the list
         erb :profile
        else
         redirect '/'
@@ -29,16 +27,15 @@ class DrummerController < ApplicationController
     patch '/profile/:id/edit' do 
         if logged_in?
             @profile = Drummer.find_by_id(params[:id])
-              if @profile && @profile.id == current_user.id
+            #   if @profile && @profile.id == current_user.id
+            user_ok?(@profile)
               #  binding.pry
                 if @profile.update(:hometown => params[:hometown], :favorite_drummer => params[:favorite_drummer])
                   redirect "/profile/#{@profile.id}"
                 else
                   redirect "/profile/#{@profile.id}/edit"
                 end
-              else
-                redirect '/profile'
-              end
+              
             end
             redirect '/login'
           end

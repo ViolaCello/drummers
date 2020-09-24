@@ -39,6 +39,11 @@ helpers do
 
 end
 
+def user_ok?(profile)
+       if profile && profile.id != current_user.id
+        redirect '/'
+      end
+    end
 
 
 end
