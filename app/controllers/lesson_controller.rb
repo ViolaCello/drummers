@@ -22,8 +22,9 @@ class LessonController < ApplicationController
         if logged_in? && current_user.id == params[:id].to_i
             user = Drummer.find_by_id(current_user.id)
            # binding.pry
-            practice = Goal.where(:drummer_id => user.id)
-            @practice = practice.reverse
+           # practice = Goal.where(:drummer_id => user.id) - replaced with ActiveRecord assoication
+           # binding.pry
+            @practice = user.goals.reverse
             erb :"/account/edit_lesson"
         else 
             redirect '/'
