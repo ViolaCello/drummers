@@ -20,11 +20,11 @@ class LessonController < ApplicationController
 
     get '/lessons/:id/edit' do 
         if logged_in? && current_user.id == params[:id].to_i
-            user = Drummer.find_by_id(current_user.id)
+            # user = Drummer.find_by_id(current_user.id)
            # binding.pry
            # practice = Goal.where(:drummer_id => user.id) - replaced with ActiveRecord assoication
            # binding.pry
-            @practice = user.goals.reverse
+            @practice = current_user.goals.reverse
             erb :"/account/edit_lesson"
         else 
             redirect '/'
@@ -45,16 +45,16 @@ class LessonController < ApplicationController
 
     patch '/lessons/:id/edit/:goal' do 
         if logged_in? && current_user.id == params[:id].to_i
-            user = Drummer.find_by_id(current_user.id)
+            # user = Drummer.find_by_id(current_user.id)
             goal = Goal.find_by_id(params[:goal].to_i)
-            if user.id == goal.drummer_id
+            if current_user.id == goal.drummer_id
                 # binding.pry
                 if !check_string(params[:current]) || !check_string(params[:aim])
                     @error = "Data must be whole numbers only"
                     erb :error
                 else
                  goal.update(:current => params[:current].to_i, :aim => params[:aim].to_i)
-                redirect "/profile/#{user.id}"
+                redirect "/profile/#{current_user.id}"
                 end
             else 
                 redirect '/'
@@ -66,11 +66,11 @@ class LessonController < ApplicationController
 
     delete '/lessons/:id/delete/:goal' do 
         if logged_in? && current_user.id == params[:id].to_i
-            user = Drummer.find_by_id(current_user.id)
+           # user = Drummer.find_by_id(current_user.id)
             goal = Goal.find_by_id(params[:goal].to_i)
-            if user.id == goal.drummer_id
+            if current_user.id == goal.drummer_id
                 goal.delete
-                redirect "/profile/#{user.id}"
+                redirect "/profile/#{current_user.id}"
             else
                 redirect '/'
             end
