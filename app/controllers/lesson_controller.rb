@@ -33,7 +33,7 @@ class LessonController < ApplicationController
 
     post '/lessons/:id/edit' do 
         if logged_in? && current_user.id == params[:id].to_i
-            user = Drummer.find_by_id(current_user.id)
+           # user = Drummer.find_by_id(current_user.id)
             @practice = Goal.find_by_id(params[:goal_id].to_i)
            # binding.pry 
             erb :"/account/edit_user_lesson"

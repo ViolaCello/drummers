@@ -31,6 +31,7 @@ class PracticesController < ApplicationController
                 erb :error
             else
             @update = Lesson.find_by(:exercise => params[:exercise])
+            binding.pry
             @goals = @update.goals.where(:drummer_id => current_user.id).last
             # binding.pry
             erb :"/account/edit_bpm"
